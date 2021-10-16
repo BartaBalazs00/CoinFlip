@@ -38,14 +38,15 @@ public class MainActivity extends AppCompatActivity {
                 dobasok++;
                 gyozelem++;
                 img_coin.setImageResource(R.drawable.heads);
+                textViewCustom.setText("A dobás fej lett! Eltaláltad!");
+                customToast.show();
             } else {
                 dobasok++;
                 vereseg++;
                 img_coin.setImageResource(R.drawable.tails);
+                textViewCustom.setText("A dobás írás lett! Nem talált!");
+                customToast.show();
             }
-            txt_dobasok.setText("Dobasok: "+dobasok);
-            txt_gyozelem.setText("Győzelem: "+gyozelem);
-            txt_vereseg.setText("Vereseg: "+vereseg);
             if(dobasok == 5){
                 if(gyozelem>vereseg){
                     alertBuilder.setTitle("Győzelem!");
@@ -55,6 +56,9 @@ public class MainActivity extends AppCompatActivity {
                     alertBuilder.setTitle("Vereség").create().show();
                 }
             }
+            txt_dobasok.setText("Dobasok: "+dobasok);
+            txt_gyozelem.setText("Győzelem: "+gyozelem);
+            txt_vereseg.setText("Vereseg: "+vereseg);
         });
         btn_iras.setOnClickListener(view -> {
             boolean fejVagyIras;
@@ -64,14 +68,15 @@ public class MainActivity extends AppCompatActivity {
                 dobasok++;
                 gyozelem++;
                 img_coin.setImageResource(R.drawable.tails);
+                textViewCustom.setText("A dobás írás lett! Eltaláltad!");
+                customToast.show();
             } else {
                 dobasok++;
                 vereseg++;
                 img_coin.setImageResource(R.drawable.heads);
+                textViewCustom.setText("A dobás fej lett! Nem talált!");
+                customToast.show();
             }
-            txt_dobasok.setText("Dobasok: "+dobasok);
-            txt_gyozelem.setText("Győzelem: "+gyozelem);
-            txt_vereseg.setText("Vereseg: "+vereseg);
             if(dobasok == 5){
                 if(gyozelem>vereseg){
                     alertBuilder.setTitle("Győzelem!");
@@ -81,6 +86,9 @@ public class MainActivity extends AppCompatActivity {
                     alertBuilder.setTitle("Vereség").create().show();
                 }
             }
+            txt_dobasok.setText("Dobasok: "+dobasok);
+            txt_gyozelem.setText("Győzelem: "+gyozelem);
+            txt_vereseg.setText("Vereseg: "+vereseg);
         });
     }
 
@@ -88,6 +96,9 @@ public class MainActivity extends AppCompatActivity {
         dobasok = 0;
         gyozelem = 0;
         vereseg = 0;
+        txt_dobasok.setText("Dobasok: "+dobasok);
+        txt_gyozelem.setText("Győzelem: "+gyozelem);
+        txt_vereseg.setText("Vereseg: "+vereseg);
     }
 
     private void init(){
@@ -108,7 +119,7 @@ public class MainActivity extends AppCompatActivity {
     }
     private void CreateAlertDialog(){
         alertBuilder.setMessage("Szeretnél e új játékot?");
-        alertBuilder.setNegativeButton("Iem", new DialogInterface.OnClickListener() {
+        alertBuilder.setNegativeButton("Nem", new DialogInterface.OnClickListener() {
             @Override
             public void onClick(DialogInterface dialogInterface, int i) {finish();}
         });
